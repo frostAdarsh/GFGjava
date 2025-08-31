@@ -5,14 +5,14 @@ import java.util.Scanner;
 
 public class SearchLinear {
 
-    // Method for linear search
+
     public static int linearSearch(ArrayList<Integer> list, int key) {
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i) == key) {
                 return i; // return index
             }
         }
-        return -1; // not found
+        return -1;
     }
 
     public static void main(String[] args) {
