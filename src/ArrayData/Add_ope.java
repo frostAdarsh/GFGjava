@@ -44,6 +44,16 @@ public class Add_ope {
         }
     }
 
+    // Function to delete element at specific position
+    static void deleteAt(ArrayList<Integer> arr, int index) {
+        if (index >= 0 && index < arr.size()) {
+            int removed = arr.remove(index);
+            System.out.println("Element " + removed + " deleted from index " + index);
+        } else {
+            System.out.println("Invalid index!");
+        }
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ArrayList<Integer> arr = new ArrayList<>();
@@ -60,7 +70,12 @@ public class Add_ope {
         System.out.print("Enter index to insert at (0-based): ");
         int index = sc.nextInt();
 
-        insertAt(arr, index, newVal);   // calling function
+        insertAt(arr, index, newVal);
         displayElements(arr);
+
+        deleteAt(arr,index);
+        displayElements(arr);
+        sc.close();
     }
+
 }
