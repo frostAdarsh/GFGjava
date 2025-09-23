@@ -1,6 +1,6 @@
 package myPractice;
 
-public class SortArraybyIncreasingFrequency {
+
     class Solution {
         public int[] frequencySort(int[] nums) {
 
@@ -35,4 +35,4 @@ public class SortArraybyIncreasingFrequency {
             return nums;
         }
     }
-}
+
