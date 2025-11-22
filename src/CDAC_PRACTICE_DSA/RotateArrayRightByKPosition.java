@@ -3,18 +3,31 @@ package CDAC_PRACTICE_DSA;
 import java.util.Scanner;
 
 public class RotateArrayRightByKPosition {
-    private static void rotateArrayByK(int[] arr, int size) {
-          int first =0;
-          int last = size-1;
-          while (first<last){
-              int temp;
-              temp= arr[first];
-              arr[first]=arr[last];
-              arr[last]=temp;
-              first++;
-              last--;
-          }
 
+    // reverse function
+    private static void reverse(int[] arr, int start, int end) {
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+
+            start++;
+            end--;
+        }
+    }
+
+    // rotate right by k
+    private static void rotateRight(int[] arr, int n, int k) {
+        k = k % n;
+
+
+        reverse(arr, 0, n - 1);
+
+
+        reverse(arr, 0, k - 1);
+
+
+        reverse(arr, k, n - 1);
     }
 
     public static void main(String[] args) {
@@ -22,22 +35,22 @@ public class RotateArrayRightByKPosition {
 
         System.out.println("Enter the size of array");
         int size = sc.nextInt();
+
         int[] arr = new int[size];
-        System.out.println("Enter the value");
-        for (int i=0;i<size;i++){
+
+        System.out.println("Enter the values");
+        for (int i = 0; i < size; i++) {
             arr[i] = sc.nextInt();
         }
+
         System.out.println("Enter the value to Rotate");
         int rotate = sc.nextInt();
 
-        rotateArrayByK(arr,size);
-        rotateArrayByK(arr,size-rotate);
-        rotateArrayByK(arr,size);
+        rotateRight(arr, size, rotate);
 
-
-        System.out.println("Rotate the array");
-        for(int num : arr){
-            System.out.print(num +" ");
+        System.out.println("Rotated array:");
+        for (int num : arr) {
+            System.out.print(num + " ");
         }
     }
 }
